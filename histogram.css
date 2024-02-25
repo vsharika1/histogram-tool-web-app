@@ -1,0 +1,166 @@
+html {
+  background-color: #cc0633;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main_container {
+  background-color: white;
+  margin: 20px;
+  height: max-content;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}
+
+h1 {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+#choose_file {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+#choose_file::file-selector-button {
+  background-color: white;
+  color: #a6192e;
+  border: #a6192e solid;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+#choose_file::file-selector-button:hover {
+  background-color: #a6192e;
+  color: white;
+  border: #a6192e solid;
+}
+
+#flex_container {
+  display: flex;
+  gap: 20px;
+}
+
+#lower_bounds {
+  margin-left: 20px;
+  height: 1010px;
+  width: 50%;
+  background-color: rgb(228, 235, 238);
+  border-radius: 5px;
+}
+
+#mini_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  margin-right: 20px;
+}
+
+#histogram {
+  height: 670px;
+  background-color: rgb(228, 235, 238);
+  border-radius: 5px;
+}
+
+#stats {
+  height: 320px;
+  background-color: rgb(228, 235, 238);
+  border-radius: 5px;
+}
+
+h2 {
+  padding-left: 20px;
+  color: #cc0633;
+}
+
+label {
+  padding-left: 20px;
+}
+
+#lower_bounds_data_conatiner {
+  padding: 20px;
+  padding-left: 80px;
+}
+
+input[type="number"] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  font-size: large;
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+.column-left {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.column-right {
+  display: flex;
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#histogram_data_container {
+  padding: 20px;
+  padding-left: 60px;
+}
+
+#stats_data_container {
+  padding: 20px;
+  padding-left: 60px;
+}
+
+.error_message {
+  padding-left: 5px;
+  padding-top: 5px;
+  color: #cc0633;
+  font-size: 12px;
+  display: none;
+}
+
+@media (max-width: 800px) {
+  #flex_container {
+    flex-direction: column;
+  }
+  #lower_bounds {
+    margin-left: 0px;
+    width: 100%;
+    margin-right: 50px;
+    height: fit-content;
+    border-radius: 0px;
+  }
+  #mini_container {
+    width: 100%;
+  }
+  #histogram {
+    border-radius: 0px;
+  }
+  #stats {
+    border-radius: 0px;
+  }
+}

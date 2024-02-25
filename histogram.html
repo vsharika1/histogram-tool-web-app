@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histogram</title>
+    <link rel="stylesheet" href="./histogram.css" />
+    <script type="text/javascript" src="./calculate.js"></script>
+  </head>
+  <body onload="init()">
+    <div id="main_container">
+      <header>
+        <h1>Histogram Generator</h1>
+        <input id="choose_file" type="file" name="file" />
+      </header>
+      <div id="flex_container">
+        <div id="lower_bounds">
+          <h2>Lower Bounds</h2>
+          <div id="lower_bounds_data_conatiner">
+            <form>
+              <div class="row">
+                <div class="column-left">
+                  <label for="max_bound">Max</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="max_bound"
+                    name="max_bound"
+                    value="100"
+                    max="100"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="A+_bound">A+</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="A+_bound"
+                    name="A+_bound"
+                    value="95"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="A_bound">A</label>
+                </div>
+                <div class="column-right">
+                  <input type="number" id="A_bound" name="A_bound" value="90" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="A-_bound">A-</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="A-_bound"
+                    name="A-_bound"
+                    value="85"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="B+_bound">B+</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="B+_bound"
+                    name="B+_bound"
+                    value="80"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="B_bound">B</label>
+                </div>
+                <div class="column-right">
+                  <input type="number" id="B_bound" name="B_bound" value="75" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="B-_bound">B-</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="B-_bound"
+                    name="B-_bound"
+                    value="70"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="C+_bound">C+</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="C+_bound"
+                    name="C+_bound"
+                    value="65"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="C_bound">C</label>
+                </div>
+                <div class="column-right">
+                  <input type="number" id="C_bound" name="C_bound" value="60" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="C-_bound">C-</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="C-_bound"
+                    name="C-_bound"
+                    value="55"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="D_bound">D</label>
+                </div>
+                <div class="column-right">
+                  <input type="number" id="D_bound" name="D_bound" value="50" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label for="F_bound">F</label>
+                </div>
+                <div class="column-right">
+                  <input
+                    type="number"
+                    id="F_bound"
+                    name="F_bound"
+                    value="0"
+                    min="0"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div id="mini_container">
+          <div id="histogram">
+            <h2>Histogram</h2>
+
+            <div id="histogram_data_container">
+              <div class="row">
+                <div class="column-left">
+                  <label>A+</label>
+                </div>
+                <div class="column-right" id="A+_histogram_container">
+                  <span id="A+_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>A</label>
+                </div>
+                <div class="column-right" id="A_histogram_container">
+                  <span id="A_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>A-</label>
+                </div>
+                <div class="column-right" id="A-_histogram_container">
+                  <span id="A-_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>B+</label>
+                </div>
+                <div class="column-right" id="B+_histogram_container">
+                  <span id="B+_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>B</label>
+                </div>
+                <div class="column-right" id="B_histogram_container">
+                  <span id="B_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>B-</label>
+                </div>
+                <div class="column-right" id="B-_histogram_container">
+                  <span id="B-_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>C+</label>
+                </div>
+                <div class="column-right" id="C+_histogram_container">
+                  <span id="C+_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>C</label>
+                </div>
+                <div class="column-right" id="C_histogram_container">
+                  <span id="C_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>C-</label>
+                </div>
+                <div class="column-right" id="C-_histogram_container">
+                  <span id="C-_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>D</label>
+                </div>
+                <div class="column-right" id="D_histogram_container">
+                  <span id="D_histogram"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>F</label>
+                </div>
+                <div class="column-right" id="F_histogram_container">
+                  <span id="F_histogram"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="stats">
+            <h2>Stats</h2>
+
+            <div id="stats_data_container">
+              <div class="row">
+                <div class="column-left">
+                  <label>Highest</label>
+                </div>
+                <div class="column-right" id="highest_container">
+                  <span id="highest_percentage"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>Lowest</label>
+                </div>
+                <div class="column-right" id="lowest_container">
+                  <span id="lowest_percentage"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>Mean</label>
+                </div>
+                <div class="column-right" id="mean_container">
+                  <span id="mean"></span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column-left">
+                  <label>Median</label>
+                </div>
+                <div class="column-right" id="median_container">
+                  <span id="median"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
